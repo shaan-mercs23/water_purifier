@@ -1,0 +1,496 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PureStream — Water Purification Solutions</title>
+  <meta name="description" content="PureStream designs, manufactures and services premium water purification systems for homes, offices and industry." />
+
+  <!-- Tailwind CDN (no build step) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Tailwind runtime config: custom color palette and container widths
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f7fdfd',
+              100: '#ecfbfb',
+              300: '#67e8f9',
+              500: '#06b6d4',
+              700: '#0e7490',
+              900: '#083344'
+            },
+            accent: {
+              500: '#00c49a'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- GSAP CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <style>
+    /* small helpers for SVG overlap and smooth scrolling */
+    html { scroll-behavior: smooth; }
+    .curve-top { transform: translateY(-1px); }
+    .glass-card { background: rgba(255,255,255,0.6); backdrop-filter: blur(6px); }
+  </style>
+</head>
+<body class="bg-gradient-to-b from-white to-slate-50 text-slate-800 font-sans">
+
+  <!-- NAV -->
+  <nav class="fixed w-full z-40 bg-white/60 backdrop-blur-md border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="#home" class="flex items-center gap-3">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+            <path d="M12 2C7 2 2 6 2 11c0 5 5 9 10 11 5-2 10-6 10-11 0-5-5-9-10-9z" fill="#06B6D4" />
+            <path d="M12 6a5 5 0 100 10 5 5 0 000-10z" fill="#00C49A" />
+          </svg>
+          <span class="font-semibold text-lg">PureStream</span>
+        </a>
+
+        <div class="hidden md:flex items-center gap-8">
+          <a href="#products" class="hover:text-brand-700">Products</a>
+          <a href="#features" class="hover:text-brand-700">Features</a>
+          <a href="#about" class="hover:text-brand-700">About</a>
+          <a href="#contact" class="hover:text-brand-700">Contact</a>
+        </div>
+
+        <div class="hidden md:flex items-center gap-3">
+          <a href="#contact" class="inline-flex items-center px-4 py-2 rounded-md text-sm font-medium bg-brand-500 text-white shadow">Get a Quote</a>
+        </div>
+
+        <!-- mobile menu button -->
+        <div class="md:hidden">
+          <button id="mobileBtn" aria-label="Open menu" class="p-2 rounded-md hover:bg-slate-100">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header id="home" class="pt-24">
+    <div class="relative overflow-hidden">
+
+      <!-- SVG curve top -->
+      <div class="curve-top">
+        <svg viewBox="0 0 1440 140" class="w-full block"><path fill="#06B6D4" d="M0,32L48,42.7C96,53,192,75,288,101.3C384,128,480,160,576,160C672,160,768,128,864,117.3C960,107,1056,117,1152,122.7C1248,128,1344,128,1392,128L1440,128L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path></svg>
+      </div>
+
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center py-20">
+          <div class="space-y-6">
+            <h1 class="text-4xl sm:text-5xl font-extrabold leading-tight">Pure, safe water — engineered for every home & business.</h1>
+            <p class="text-lg text-slate-700 max-w-xl">We design and manufacture advanced water purification systems — reverse osmosis, UV, ultrafiltration and whole-building solutions — to deliver healthy, great‑tasting water with minimal footprint and smart control.</p>
+
+            <div class="flex gap-3 items-center">
+              <a href="#products" class="inline-flex items-center px-6 py-3 rounded-md bg-brand-500 text-white font-medium shadow hover:shadow-lg">Explore Products</a>
+              <a href="#contact" class="inline-flex items-center px-4 py-3 rounded-md border border-slate-200 text-sm">Contact Sales</a>
+            </div>
+
+            <div class="flex gap-6 mt-6">
+              <div class="flex items-center gap-3">
+                <div class="h-12 w-12 flex items-center justify-center rounded-full bg-white shadow">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2v6" stroke="#06B6D4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <div>
+                  <div class="text-sm font-semibold">Certified Filters</div>
+                  <div class="text-sm text-slate-600">NSF & ISO standards</div>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-3">
+                <div class="h-12 w-12 flex items-center justify-center rounded-full bg-white shadow">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V6" stroke="#00C49A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <div>
+                  <div class="text-sm font-semibold">Low Maintenance</div>
+                  <div class="text-sm text-slate-600">Smart reminders & long-life filters</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="relative">
+            <div class="mx-auto max-w-md glass-card rounded-2xl p-6 shadow-2xl">
+              <div class="flex items-center gap-4">
+                <img src="https://images.unsplash.com/photo-1581578017118-0ea8e2e9e0a9?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Water purifier" class="w-24 h-24 object-cover rounded-xl shadow" />
+                <div>
+                  <div class="text-xl font-semibold">PureStream Compact MO</div>
+                  <div class="text-sm text-slate-600">4-stage membrane osmosis for kitchens — 12L/day</div>
+                </div>
+              </div>
+
+              <div class="mt-4 grid grid-cols-2 gap-2">
+                <div class="p-3 rounded-md border border-slate-100">
+                  <div class="text-xs text-slate-500">Flow</div>
+                  <div class="font-semibold">12 L / day</div>
+                </div>
+                <div class="p-3 rounded-md border border-slate-100">
+                  <div class="text-xs text-slate-500">Warranty</div>
+                  <div class="font-semibold">2 years</div>
+                </div>
+              </div>
+
+              <div class="mt-4 flex gap-2">
+                <a href="#contact" class="flex-1 text-center px-4 py-2 rounded-md bg-brand-700 text-white">Request Quote</a>
+                <a href="#products" class="flex-1 text-center px-4 py-2 rounded-md border">View Details</a>
+              </div>
+            </div>
+
+            <!-- decorative droplets -->
+            <svg class="absolute -right-8 -bottom-8 opacity-60" width="220" height="220" viewBox="0 0 200 200" fill="none">
+              <circle cx="60" cy="60" r="50" fill="#06B6D4" opacity="0.18" />
+              <circle cx="130" cy="120" r="40" fill="#00C49A" opacity="0.12" />
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- SVG curve bottom -->
+      <div class="mt-6">
+        <svg viewBox="0 0 1440 140" class="w-full"><path fill="#ffffff" d="M0,32L48,42.7C96,53,192,75,288,101.3C384,128,480,160,576,160C672,160,768,128,864,117.3C960,107,1056,117,1152,122.7C1248,128,1344,128,1392,128L1440,128L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path></svg>
+      </div>
+    </div>
+  </header>
+
+  <!-- PRODUCTS -->
+  <section id="products" class="py-20">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl font-bold">Our Products</h2>
+        <p class="text-slate-600 mt-2">Solutions for homes, offices and light industry — modular, serviceable and efficient.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- product card -->
+        <article class="product-card p-6 rounded-2xl bg-white shadow hover:shadow-2xl transition-transform will-change-transform">
+          <div class="flex items-center justify-between">
+            <div>
+              <h3 class="text-xl font-semibold">Compact RO</h3>
+              <p class="text-sm text-slate-500">4-stage, kitchen mount</p>
+            </div>
+            <div class="text-right">
+              <div class="text-sm text-slate-500">Capacity</div>
+              <div class="font-semibold">12 L/day</div>
+            </div>
+          </div>
+          <ul class="mt-4 space-y-2 text-sm text-slate-600">
+            <li>NSF-certified membranes</li>
+            <li>Smart filter-change alerts</li>
+            <li>Tool-free cartridge replacement</li>
+          </ul>
+          <div class="mt-6 flex gap-3">
+            <a href="#contact" class="flex-1 text-center px-4 py-2 rounded-md bg-brand-500 text-white">Enquire</a>
+            <a href="#" class="px-4 py-2 rounded-md border">Specs</a>
+          </div>
+        </article>
+
+        <article class="product-card p-6 rounded-2xl bg-white shadow hover:shadow-2xl transition-transform will-change-transform">
+          <div class="flex items-center justify-between">
+            <div>
+              <h3 class="text-xl font-semibold">UV Guard Pro</h3>
+              <p class="text-sm text-slate-500">Point-of-use UV sterilizer</p>
+            </div>
+            <div class="text-right">
+              <div class="text-sm text-slate-500">Flow</div>
+              <div class="font-semibold">6 L/min</div>
+            </div>
+          </div>
+          <ul class="mt-4 space-y-2 text-sm text-slate-600">
+            <li>UV-C LED — long life</li>
+            <li>Low-pressure drop</li>
+            <li>Integrated flow-sensor</li>
+          </ul>
+          <div class="mt-6 flex gap-3">
+            <a href="#contact" class="flex-1 text-center px-4 py-2 rounded-md bg-brand-500 text-white">Enquire</a>
+            <a href="#" class="px-4 py-2 rounded-md border">Specs</a>
+          </div>
+        </article>
+
+        <article class="product-card p-6 rounded-2xl bg-white shadow hover:shadow-2xl transition-transform will-change-transform">
+          <div class="flex items-center justify-between">
+            <div>
+              <h3 class="text-xl font-semibold">Whole-Building UF</h3>
+              <p class="text-sm text-slate-500">High-throughput ultrafiltration</p>
+            </div>
+            <div class="text-right">
+              <div class="text-sm text-slate-500">Capacity</div>
+              <div class="font-semibold">Up to 10,000 L/day</div>
+            </div>
+          </div>
+          <ul class="mt-4 space-y-2 text-sm text-slate-600">
+            <li>Modular rack systems</li>
+            <li>SCADA-ready control</li>
+            <li>Low energy footprint</li>
+          </ul>
+          <div class="mt-6 flex gap-3">
+            <a href="#contact" class="flex-1 text-center px-4 py-2 rounded-md bg-brand-500 text-white">Enquire</a>
+            <a href="#" class="px-4 py-2 rounded-md border">Specs</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features" class="py-24 bg-gradient-to-b from-white to-slate-50">
+    <div class="max-w-6xl mx-auto px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h3 class="text-3xl font-bold">Engineered for performance & reliability</h3>
+          <p class="text-slate-600 mt-3">We combine certified filtration media, efficient hydraulics and intelligent control to reduce waste, energy use and operating costs while improving water quality.</p>
+
+          <ul class="mt-6 space-y-4">
+            <li class="flex gap-4 items-start">
+              <div class="h-12 w-12 rounded-md flex items-center justify-center bg-brand-100">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2v10" stroke="#06B6D4" stroke-width="2" stroke-linecap="round"/></svg>
+              </div>
+              <div>
+                <div class="font-semibold">Smart Monitoring</div>
+                <div class="text-slate-600 text-sm">Remote diagnostics, filter-life predictions and usage analytics.</div>
+              </div>
+            </li>
+
+            <li class="flex gap-4 items-start">
+              <div class="h-12 w-12 rounded-md flex items-center justify-center bg-brand-100">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 12h18" stroke="#00C49A" stroke-width="2" stroke-linecap="round"/></svg>
+              </div>
+              <div>
+                <div class="font-semibold">Sustainable Design</div>
+                <div class="text-slate-600 text-sm">Optimized membrane area and low backwash water consumption.</div>
+              </div>
+            </li>
+          </ul>
+
+        </div>
+
+        <div class="relative">
+          <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Plant room" class="rounded-2xl shadow-lg w-full object-cover h-72" />
+          <div class="absolute -left-6 -bottom-6 p-4 rounded-xl glass-card shadow">
+            <div class="text-xs text-slate-500">Case Study</div>
+            <div class="font-semibold">Factory retrofit reduced water waste by 37%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="py-20">
+    <div class="max-w-6xl mx-auto px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <h3 class="text-3xl font-bold">About PureStream</h3>
+          <p class="text-slate-600 mt-4">Founded by water engineers and materials scientists, PureStream delivers practical purification solutions tailored to local water challenges. We support customers from initial sampling, through design and installation, to ongoing maintenance.</p>
+
+          <ul class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <li class="p-4 rounded-md border bg-white">
+              <div class="text-sm text-slate-500">Established</div>
+              <div class="font-semibold">2025</div>
+            </li>
+            <li class="p-4 rounded-md border bg-white">
+              <div class="text-sm text-slate-500">Service Centres</div>
+              <div class="font-semibold">Rolling out in 25+ cities</div>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="p-6 rounded-2xl bg-brand-50 border">
+            <h4 class="font-semibold text-lg">Why choose us?</h4>
+            <ol class="mt-3 list-decimal list-inside text-slate-600 space-y-2">
+              <li>Proven, certified technologies</li>
+              <li>Local support and spare parts</li>
+              <li>Tailored solutions for scale & budget</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="py-20 bg-slate-50">
+    <div class="max-w-4xl mx-auto px-6 lg:px-8">
+      <div class="bg-white rounded-2xl shadow p-8">
+        <h3 class="text-2xl font-bold">Get in touch</h3>
+        <p class="text-slate-600 mt-2">Send us your enquiry and our sales team will contact you within one business day.</p>
+
+        <form class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4" onsubmit="event.preventDefault(); handleContactForm();">
+          <input required name="name" placeholder="Full name" class="p-3 rounded-md border" />
+          <input required name="company" placeholder="Company (optional)" class="p-3 rounded-md border" />
+          <input required name="email" type="email" placeholder="Email" class="p-3 rounded-md border" />
+          <input required name="phone" placeholder="Phone" class="p-3 rounded-md border" />
+          <textarea required name="message" placeholder="Tell us about your project" class="md:col-span-2 p-3 rounded-md border" rows="5"></textarea>
+
+          <div class="md:col-span-2 flex items-center justify-between">
+            <div class="text-sm text-slate-500">By contacting you agree to our terms.</div>
+            <button type="submit" class="px-6 py-2 rounded-md bg-brand-700 text-white">Send Enquiry</button>
+          </div>
+        </form>
+
+        <div id="contactNote" class="mt-4 text-sm text-green-600 hidden">Thanks — your enquiry was noted (demo only).</div>
+      </div>
+
+      <div class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm text-slate-600">
+        <div class="p-4 bg-white rounded shadow">
+          <div class="font-semibold">Head Office</div>
+          <div>123 Aqua Lane<br/>Newtown, 400001</div>
+        </div>
+        <div class="p-4 bg-white rounded shadow">
+          <div class="font-semibold">Support</div>
+          <div>support@purestream.example<br/>+91 98765 43210</div>
+        </div>
+        <div class="p-4 bg-white rounded shadow">
+          <div class="font-semibold">Factory</div>
+          <div>Industrial Park, Unit 7</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+<section id="team" class="py-20 bg-white">
+  <div class="max-w-6xl mx-auto px-6 lg:px-8 text-center">
+    <h2 class="text-3xl font-bold mb-3">Meet Our Team</h2>
+    <p class="text-slate-600 mb-12 max-w-2xl mx-auto">
+      The PureStream team brings together experts in engineering, design, and sustainability to deliver world-class water purification solutions.
+    </p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+      <!-- Team member 1 -->
+      <div class="team-card glass-card p-6 rounded-2xl shadow hover:shadow-xl transition-transform bg-white">
+        <img src="https://images.unsplash.com/photo-1603415526960-f7e0328d6d2?q=80&w=400&auto=format&fit=crop" alt="Team Member" class="w-28 h-28 rounded-full mx-auto mb-4 object-cover shadow-md">
+        <h3 class="font-semibold text-lg">Shaan Bhattacharya</h3>
+        <p class="text-slate-600 text-sm mb-3">Co-Founder</p>
+      </div>
+
+      <!-- Team member 2 -->
+      <div class="team-card glass-card p-6 rounded-2xl shadow hover:shadow-xl transition-transform bg-white">
+        <img src="https://images.unsplash.com/photo-1524504388940-b1c172253e1?q=80&w=400&auto=format&fit=crop" alt="Team Member" class="w-28 h-28 rounded-full mx-auto mb-4 object-cover shadow-md">
+        <h3 class="font-semibold text-lg">Swaymbhu</h3>
+        <p class="text-slate-600 text-sm mb-3">Co-Founder</p>
+      </div>
+
+      <!-- Team member 3 -->
+      <div class="team-card glass-card p-6 rounded-2xl shadow hover:shadow-xl transition-transform bg-white">
+        <img src="https://images.unsplash.com/photo-1590080875831-bb0c33a0474?q=80&w=400&auto=format&fit=crop" alt="Team Member" class="w-28 h-28 rounded-full mx-auto mb-4 object-cover shadow-md">
+        <h3 class="font-semibold text-lg">Santosh V</h3>
+        <p class="text-slate-600 text-sm mb-3">Co-Founder</p>
+      </div>
+
+      <!-- Team member 4 -->
+      <div class="team-card glass-card p-6 rounded-2xl shadow hover:shadow-xl transition-transform bg-white">
+        <img src="https://images.unsplash.com/photo-1506794778202-ca84cf45f1d?q=80&w=400&auto=format&fit=crop" alt="Team Member" class="w-28 h-28 rounded-full mx-auto mb-4 object-cover shadow-md">
+        <h3 class="font-semibold text-lg">Akshat Anant</h3>
+        <p class="text-slate-600 text-sm mb-3">Co-Founder</p>
+      </div>
+
+      <!-- Team member 5 -->
+      <div class="team-card glass-card p-6 rounded-2xl shadow hover:shadow-xl transition-transform bg-white">
+        <img src="https://images.unsplash.com/photo-1529626455594-4f0802cfb7e?q=80&w=400&auto=format&fit=crop" alt="Team Member" class="w-28 h-28 rounded-full mx-auto mb-4 object-cover shadow-md">
+        <h3 class="font-semibold text-lg">Janani J</h3>
+        <p class="text-slate-600 text-sm mb-3">Co-Founder</p>
+      </div>
+
+      <!-- Team member 6 -->
+      <div class="team-card glass-card p-6 rounded-2xl shadow hover:shadow-xl transition-transform bg-white">
+        <img src="https://images.unsplash.com/photo-1531123897727-8f129e11688ce?q=80&w=400&auto=format&fit=crop" alt="Team Member" class="w-28 h-28 rounded-full mx-auto mb-4 object-cover shadow-md">
+        <h3 class="font-semibold text-lg">Potarla Adithya Chandra</h3>
+        <p class="text-slate-600 text-sm mb-3">Co-Founder</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-100 py-8">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="text-sm">© <span id="year"></span> PureStream. All rights reserved.</div>
+      <div class="flex gap-4 text-sm text-slate-600">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile drawer -->
+  <div id="mobileDrawer" class="fixed inset-0 z-50 hidden">
+    <div class="absolute inset-0 bg-black/40" id="drawerOverlay"></div>
+    <div class="absolute right-0 top-0 w-3/4 max-w-xs h-full bg-white p-6">
+      <button id="closeDrawer" class="mb-6">Close ✕</button>
+      <nav class="flex flex-col gap-4">
+        <a href="#products">Products</a>
+        <a href="#features">Features</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </div>
+
+  <script>
+    // small UI handlers
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const mobileBtn = document.getElementById('mobileBtn');
+    const drawer = document.getElementById('mobileDrawer');
+    const closeDrawer = document.getElementById('closeDrawer');
+    const drawerOverlay = document.getElementById('drawerOverlay');
+    mobileBtn?.addEventListener('click', () => drawer.classList.remove('hidden'));
+    closeDrawer?.addEventListener('click', () => drawer.classList.add('hidden'));
+    drawerOverlay?.addEventListener('click', () => drawer.classList.add('hidden'));
+
+    function handleContactForm(){
+      // demo-only: show the message and clear form
+      document.getElementById('contactNote').classList.remove('hidden');
+      setTimeout(()=>document.getElementById('contactNote').classList.add('hidden'),4000);
+      // reset form fields
+      const f = document.querySelector('form');
+      if(f) f.reset();
+    }
+
+    // GSAP animations
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Hero fade-in
+    gsap.from('header h1', {opacity:0, y:20, duration:0.9, delay:0.2});
+    gsap.from('header p', {opacity:0, y:14, duration:0.9, delay:0.35});
+
+    // product cards stagger on scroll
+    gsap.utils.toArray('.product-card').forEach((card, i) => {
+      gsap.from(card, {
+        y: 30,
+        opacity: 0,
+        duration: 0.7,
+        delay: i * 0.08,
+        scrollTrigger: { trigger: card, start: 'top 80%' }
+      });
+    });
+
+    // subtle hover lift
+    document.querySelectorAll('.product-card').forEach(el=>{
+      el.addEventListener('mouseenter', ()=> gsap.to(el,{y:-6, duration:0.25}))
+      el.addEventListener('mouseleave', ()=> gsap.to(el,{y:0, duration:0.25}))
+    })
+
+  </script>
+</body>
+</html>
